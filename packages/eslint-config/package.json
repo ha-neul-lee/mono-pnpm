@@ -1,0 +1,11 @@
+{
+  "name": "@mcm/eslint-config",
+  "license": "MIT",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "eslint-config-turbo": "^1.12.4",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@mcm/ui",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@mcm/eslint-config": "workspace:*",
+    "@mcm/tsconfig": "workspace:*",
+    "vue": "^3.4.21"
+  }
+}

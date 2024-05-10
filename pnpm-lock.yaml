@@ -14,6 +14,9 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
+      husky:
+        specifier: ^8.0.0
+        version: 8.0.3
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
@@ -25,7 +28,10 @@ importers:
     dependencies:
       '@mcm/ui':
         specifier: workspace:*
-        version: link:../../packages/ui
+        version: link:../../packages/vue/ui
+      '@mcm/utils':
+        specifier: workspace:*
+        version: link:../../packages/common/utils
       vue:
         specifier: ^3.4.21
         version: 3.4.27(typescript@5.3.3)
@@ -39,9 +45,9 @@ importers:
       '@rushstack/eslint-patch':
         specifier: ^1.7.2
         version: 1.10.2
-      '@tsconfig/node18':
-        specifier: ^18.2.2
-        version: 18.2.4
+      '@tsconfig/node20':
+        specifier: ^20.1.4
+        version: 20.1.4
       '@types/node':
         specifier: ^20.11.24
         version: 20.12.11
@@ -67,6 +73,16 @@ importers:
         specifier: ^2.0.4
         version: 2.0.16(typescript@5.3.3)
 
+  packages/common/utils:
+    dependencies:
+      date-fns:
+        specifier: ^2.25.0
+        version: 2.30.0
+    devDependencies:
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
   packages/eslint-config:
     devDependencies:
       '@vue/eslint-config-typescript':
@@ -85,17 +101,21 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
 
-  packages/ui:
-    devDependencies:
-      '@mcm/eslint-config':
+  packages/vue/ui:
+    dependencies:
+      '@mcm/utils':
         specifier: workspace:*
-        version: link:../eslint-config
-      '@mcm/tsconfig':
-        specifier: workspace:*
-        version: link:../tsconfig
+        version: link:../../common/utils
       vue:
         specifier: ^3.4.21
         version: 3.4.27(typescript@5.4.5)
+    devDependencies:
+      '@mcm/eslint-config':
+        specifier: workspace:*
+        version: link:../../eslint-config
+      '@mcm/tsconfig':
+        specifier: workspace:*
+        version: link:../../tsconfig
 
 packages:
 
@@ -111,6 +131,10 @@ packages:
     resolution: {integrity: sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+
+  '@babel/runtime@7.24.5':
+    resolution: {integrity: sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==}
+    engines: {node: '>=6.9.0'}
 
   '@babel/types@7.24.5':
     resolution: {integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==}
@@ -381,8 +405,8 @@ packages:
   '@rushstack/eslint-patch@1.10.2':
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==}
 
-  '@tsconfig/node18@18.2.4':
-    resolution: {integrity: sha512-5xxU8vVs9/FNcvm3gE07fPbn9tl6tqGGWA9tSlwsUEkBxtRnTsNmwrV8gasZ9F/EobaSv9+nu8AxUKccw77JpQ==}
+  '@tsconfig/node20@20.1.4':
+    resolution: {integrity: sha512-sqgsT69YFeLWf5NtJ4Xq/xAF8p4ZQHlmGW74Nu2tD4+g5fAsposc4ZfaaPixVu4y01BEiDCWLRDCvDM5JOsRxg==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -605,6 +629,10 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
+  date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+
   de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
 
@@ -768,6 +796,11 @@ packages:
 
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
+    hasBin: true
+
+  husky@8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
     hasBin: true
 
   ignore@5.3.1:
@@ -966,6 +999,9 @@ packages:
   read-package-json-fast@3.0.2:
     resolution: {integrity: sha512-0J+Msgym3vrLOUB3hzQCuZHII0xkNGCtz/HJH9xZshwv9DbDwkw1KaE3gx/e2J5rpEY5rtOy6cyhKOPrkP7FZw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  regenerator-runtime@0.14.1:
+    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -1182,6 +1218,10 @@ snapshots:
     dependencies:
       '@babel/types': 7.24.5
 
+  '@babel/runtime@7.24.5':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@babel/types@7.24.5':
     dependencies:
       '@babel/helper-string-parser': 7.24.1
@@ -1356,7 +1396,7 @@ snapshots:
 
   '@rushstack/eslint-patch@1.10.2': {}
 
-  '@tsconfig/node18@18.2.4': {}
+  '@tsconfig/node20@20.1.4': {}
 
   '@types/estree@1.0.5': {}
 
@@ -1628,6 +1668,10 @@ snapshots:
 
   csstype@3.1.3: {}
 
+  date-fns@2.30.0:
+    dependencies:
+      '@babel/runtime': 7.24.5
+
   de-indent@1.0.2: {}
 
   debug@4.3.4:
@@ -1850,6 +1894,8 @@ snapshots:
 
   he@1.2.0: {}
 
+  husky@8.0.3: {}
+
   ignore@5.3.1: {}
 
   import-fresh@3.3.0:
@@ -2017,6 +2063,8 @@ snapshots:
       json-parse-even-better-errors: 3.0.2
       npm-normalize-package-bin: 3.0.1
 
+  regenerator-runtime@0.14.1: {}
+
   resolve-from@4.0.0: {}
 
   reusify@1.0.4: {}
@@ -2122,8 +2170,7 @@ snapshots:
 
   typescript@5.3.3: {}
 
-  typescript@5.4.5:
-    optional: true
+  typescript@5.4.5: {}
 
   undici-types@5.26.5: {}
 

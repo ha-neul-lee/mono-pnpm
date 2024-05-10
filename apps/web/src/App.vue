@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import { Card } from '@mcm/ui'
+import { Card } from '../../../packages/vue/ui'
 </script>
 
 <template>

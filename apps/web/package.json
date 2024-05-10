@@ -7,18 +7,22 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "type-check": "vue-tsc --noEmit --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+  },
+  "engines": {
+    "node": ">=20.x"
   },
   "dependencies": {
     "@mcm/ui": "workspace:*",
+    "@mcm/utils": "workspace:*",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@mcm/eslint-config": "workspace:*",
     "@mcm/tsconfig": "workspace:*",
     "@rushstack/eslint-patch": "^1.7.2",
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.11.24",
     "@vitejs/plugin-vue": "^5.0.4",
     "eslint": "^8.57.0",

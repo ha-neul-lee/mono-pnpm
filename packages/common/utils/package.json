@@ -1,0 +1,24 @@
+{
+  "name": "@mcm/utils",
+  "version": "1.0.0",
+  "exports": {
+    ".": {
+      "require": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist",
+    "esm"
+  ],
+  "scripts": {
+  },
+  "dependencies": {
+    "date-fns": "^2.25.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

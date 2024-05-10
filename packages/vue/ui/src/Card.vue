@@ -1,9 +1,14 @@
 <script lang="ts" setup>
+
+import {chunk} from "@mcm/utils";
+
 const props = defineProps<{
   class?: string;
   title: string;
   href: string;
 }>();
+
+chunk([props.class], 1 )
 </script>
 
 <template>

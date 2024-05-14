@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import { Card } from '../../../packages/vue/ui'
+import HelloWorld from './components/HelloWorld.vue';
+import { Card } from '@mcm/ui';
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import { Card } from '../../../packages/vue/ui'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <Card href="https://naver.com" title="Naver"/>
+  <Card href="https://naver.com" title="Naver" />
   <HelloWorld msg="Vite + Vue" />
 </template>
 

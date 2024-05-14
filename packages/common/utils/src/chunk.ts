@@ -1,3 +1,8 @@
+/**
+ * Split an array into chunks of a given size
+ * @param arr
+ * @param size
+ */
 export function chunk<T>(arr: T[], size: number) {
   if (size < 1) {
     return [];
